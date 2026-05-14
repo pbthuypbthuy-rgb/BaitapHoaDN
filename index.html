@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI VIBE 2026 - Khóa đào tạo nội bộ Viettel Networks</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Inter:wght@300;400;500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Colors */
+            --viettel-red: #E30613;
+            --red-dark: #B30000;
+            --red-light: #FF2D2D;
+            --black: #0A0A0A;
+            --dark: #1A1A1A;
+            --cyan: #00D4FF;
+            --purple: #7C3AED;
+            --navy: #0F172A;
+            --gray: #64748B;
+            --white: #FFFFFF;
+            --light-gray: #F8F9FB;
+            --gray-3: #CCCCCC;
+            
+            /* Typography */
+            --font-display: 'Barlow Condensed', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-label: 'Roboto', sans-serif;
+            
+            /* Gradients */
+            --grad-cta: linear-gradient(135deg, #E30613 0%, #B30000 100%);
+            --grad-heading: linear-gradient(90deg, #E30613 0%, #00D4FF 100%);
+            --grad-hero: linear-gradient(135deg, #0A0A0A 0%, #1A1F3A 60%, #0A0A0A 100%);
+            --grad-accent: linear-gradient(135deg, #7C3AED 0%, #00D4FF 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--navy);
+            background-color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .h-display {
+            font-family: var(--font-display);
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            border-radius: 12px;
+            transition: all 0.2s ease-out;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--viettel-red);
+            color: var(--white);
+            padding: 12px 24px;
+            box-shadow: 0 0 32px rgba(227, 6, 19, 0.45);
+        }
+
+        .btn-primary:hover {
+            background: var(--red-dark);
+            transform: scale(1.04);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            padding: 12px 24px;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--white);
+            background: rgba(255,255,255,0.1);
+        }
+
+        .pill {
+            display: inline-block;
+            border-radius: 999px;
+            padding: 6px 16px;
+            font-family: var(--font-label);
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .pill-cyan {
+            border: 1px solid var(--cyan);
+            background: rgba(0, 212, 255, 0.08);
+            color: var(--cyan);
+        }
+
+        /* Nav */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.2s ease-out;
+            background: transparent;
+        }
+
+        .navbar.scrolled {
+            backdrop-filter: blur(12px);
+            background: rgba(10, 10, 10, 0.85);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .nav-logo {
+            color: var(--white);
+            font-weight: 800;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-logo span {
+            font-family: var(--font-label);
+            font-size: 12px;
+            color: var(--gray-3);
+            font-weight: 400;
+            border-left: 1px solid var(--gray-3);
+            padding-left: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 500;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+            color: var(--cyan);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            background: var(--grad-hero);
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 72px;
+            color: var(--white);
+            overflow: hidden;
+        }
+
+        .hero-bg-particles {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 32px 32px;
+            opacity: 0.3;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 60% 40%;
+            gap: 48px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 800;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #FFFFFF 0%, #00D4FF 60%, #E30613 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 24px 0;
+        }
+
+        .hero p.subheadline {
+            font-size: 18px;
+            color: rgba(255,255,255,0.75);
+            max-width: 520px;
+            margin-bottom: 32px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+
+        .hero-buttons .btn-primary {
+            font-size: 18px;
+            padding: 18px 36px;
+        }
+
+        .social-proof-mini {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .proof-tag {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-16px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .mockup-window {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            aspect-ratio: 4/3;
+            box-shadow: 0 24px 64px rgba(0,0,0,0.4);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .mockup-header {
+            height: 32px;
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            gap: 8px;
+        }
+        .mockup-dot { width: 10px; height: 10px; border-radius: 50%; background: #444; }
+        .mockup-dot:nth-child(1) { background: #FF5F56; }
+        .mockup-dot:nth-child(2) { background: #FFBD2E; }
+        .mockup-dot:nth-child(3) { background: #27C93F; }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--cyan);
+            font-size: 24px;
+            animation: bounce 1.5s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translate(-50%, 0); }
+            50% { transform: translate(-50%, 8px); }
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--dark);
+            padding: 48px 0;
+            color: var(--white);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .stat-num {
+            font-family: var(--font-display);
+            font-size: 48px;
+            font-weight: 800;
+            background: var(--grad-heading);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .marquee-container {
+            overflow: hidden;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 32px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .marquee-title {
+            font-size: 12px;
+            color: var(--gray);
+            white-space: nowrap;
+        }
+
+        .marquee-content {
+            display: flex;
+            gap: 48px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* Sections General */
+        .section {
+            padding: 96px 0;
+        }
+
+        .bg-light { background: var(--light-gray); }
+        .bg-dark { background: var(--black); color: var(--white); }
+        .bg-navy { background: #1A1F3A; color: var(--white); }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-label {
+            font-family: var(--font-label);
+            font-size: 12px;
+            color: var(--viettel-red);
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .bg-dark .section-label, .bg-navy .section-label {
+            color: var(--cyan);
+        }
+
+        .section-title {
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+
+        .section-subtext {
+            color: var(--gray);
+            font-size: 18px;
+        }
+        .bg-dark .section-subtext, .bg-navy .section-subtext {
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* Benefits */
+        .ba-table {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 64px;
+        }
+
+        .ba-col {
+            padding: 32px;
+            border-radius: 16px;
+        }
+
+        .ba-before { background: #FFF0F0; border: 1px solid #FFE0E0; }
+        .ba-after { background: #F0FFF8; border: 1px solid #D0F0E0; }
+
+        .ba-title { font-size: 24px; font-weight: 700; margin-bottom: 24px; display: flex; align-items: center; gap: 8px;}
+        .ba-before .ba-title { color: var(--red-dark); }
+        .ba-after .ba-title { color: #008A45; }
+
+        .ba-list li {
+            margin-bottom: 16px;
+            padding-left: 24px;
+            position: relative;
+        }
+        .ba-before .ba-list li::before { content: '❌'; position: absolute; left: 0; font-size: 12px; top: 4px;}
+        .ba-after .ba-list li::before { content: '✅'; position: absolute; left: 0; font-size: 12px; top: 4px;}
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+            transition: all 0.2s ease-out;
+            border: 1px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+        }
+
+        .bg-dark .card {
+            background: var(--dark);
+            border: 1px solid rgba(255,255,255,0.08);
+            color: var(--white);
+        }
+
+        .bg-dark .card:hover {
+            border-color: var(--cyan);
+        }
+
+        .card-icon {
+            font-size: 40px;
+            margin-bottom: 24px;
+            background: var(--grad-heading);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card h3 { font-size: 24px; margin-bottom: 16px; }
+        .bg-dark .card p { color: rgba(255,255,255,0.6); }
+
+        /* Content Tabs */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+
+        .tab-btn {
+            padding: 16px 32px;
+            font-size: 18px;
+            font-weight: 700;
+            background: var(--white);
+            border: 1px solid var(--gray-3);
+            border-radius: 12px;
+            cursor: pointer;
+            color: var(--gray);
+            transition: all 0.2s;
+        }
+
+        .tab-btn.active {
+            background: var(--viettel-red);
+            color: var(--white);
+            border-color: var(--viettel-red);
+        }
+
+        .tab-content {
+            display: none;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+            background: var(--white);
+            padding: 48px;
+            border-radius: 24px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+        }
+
+        .tab-content.active { display: grid; }
+
+        .timeline {
+            margin-top: 64px;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 24px; left: 0; right: 0;
+            height: 2px;
+            background: var(--gray-3);
+            z-index: 0;
+        }
+
+        .tl-step {
+            width: 22%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tl-num {
+            width: 48px; height: 48px;
+            background: var(--white);
+            border: 2px solid var(--viettel-red);
+            color: var(--viettel-red);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 20px;
+            margin-bottom: 16px;
+        }
+
+        .tl-step h4 { font-size: 18px; margin-bottom: 8px;}
+        .tl-step p { font-size: 14px; color: var(--gray); }
+
+        /* Results */
+        .score-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .score-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 24px;
+            position: relative;
+        }
+        
+        .score-card h3 { font-size: 32px; margin-bottom: 16px; }
+        .score-badge {
+            position: absolute;
+            top: 40px; right: 40px;
+            background: var(--viettel-red);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-family: var(--font-display);
+            font-size: 24px;
+        }
+        .score-card:nth-child(2) .score-badge { background: var(--cyan); color: var(--navy); }
+
+        .total-score {
+            text-align: center;
+            font-size: 40px;
+            font-family: var(--font-display);
+            font-weight: 800;
+            background: var(--grad-heading);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 48px;
+        }
+
+        /* Info */
+        .info-card {
+            max-width: 640px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 24px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .info-header {
+            background: var(--grad-cta);
+            padding: 40px;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .info-header h3 { font-size: 48px; margin-bottom: 8px; }
+
+        .info-body { padding: 40px; }
+        .info-row {
+            display: flex;
+            align-items: center;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        .info-icon { width: 40px; font-size: 24px; }
+        .info-label { width: 120px; font-weight: 500; color: var(--gray); }
+        .info-value { font-weight: 700; color: var(--navy); }
+        
+        .info-footer {
+            background: #F0FFF8;
+            padding: 24px;
+            text-align: center;
+            font-weight: 500;
+            color: #008A45;
+        }
+
+        /* FAQ */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 16px;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+            overflow: hidden;
+        }
+
+        .faq-q {
+            padding: 24px;
+            font-weight: 700;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-a {
+            padding: 0 24px 24px;
+            color: var(--gray);
+            display: none;
+        }
+
+        .faq-item.active .faq-a { display: block; }
+
+        /* Final CTA */
+        .final-cta {
+            background: var(--grad-hero);
+            position: relative;
+            padding: 120px 0;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .urgency-banner {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            background: var(--red-dark);
+            text-align: center;
+            padding: 12px;
+            font-weight: 700;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin: 48px 0;
+        }
+
+        .cd-box {
+            background: rgba(255,255,255,0.05);
+            padding: 24px;
+            border-radius: 12px;
+            min-width: 120px;
+        }
+
+        .cd-num { font-size: 56px; font-family: var(--font-display); font-weight: 800; }
+        .cd-label { font-size: 12px; font-family: var(--font-label); color: rgba(255,255,255,0.6); }
+
+        .final-cta h2 { font-size: 48px; margin-bottom: 8px;}
+        .final-cta h2.highlight { background: var(--grad-heading); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 56px; margin-bottom: 48px;}
+
+        .btn-huge {
+            font-size: 20px;
+            padding: 24px 56px;
+            box-shadow: 0 0 48px rgba(227,6,19,0.6), 0 0 80px rgba(227,6,19,0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 64px 0 32px;
+            font-size: 14px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-col h4 { font-size: 18px; margin-bottom: 24px; color: var(--gray-3); }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: rgba(255,255,255,0.6); transition: color 0.2s; }
+        .footer-links a:hover { color: var(--cyan); }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* Floating Components */
+        .floating-zalo {
+            position: fixed;
+            bottom: 24px; right: 24px;
+            width: 56px; height: 56px;
+            background: #0068FF;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-weight: bold;
+            box-shadow: 0 4px 16px rgba(0,104,255,0.4);
+            z-index: 100;
+            transition: transform 0.2s;
+        }
+        .floating-zalo:hover { transform: scale(1.1); }
+
+        .fomo-toast {
+            position: fixed;
+            bottom: 24px; left: 24px;
+            background: var(--white);
+            padding: 16px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            display: flex; align-items: center; gap: 12px;
+            transform: translateX(-150%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 100;
+        }
+        .fomo-toast.show { transform: translateX(0); }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-grid, .ba-table, .cards-grid, .tab-content, .score-cards, .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-links, .nav-right .phone { display: none; }
+            .hero h1 { font-size: 40px; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .timeline { flex-direction: column; gap: 32px; }
+            .timeline::before { left: 24px; top: 0; width: 2px; height: 100%; }
+            .tl-step { width: 100%; padding-left: 64px; }
+            .tl-num { position: absolute; left: 0; top: 0; margin: 0; }
+            .countdown { flex-wrap: wrap; }
+            .cd-box { min-width: 45%; }
+            .btn-huge { padding: 16px 32px; font-size: 16px; width: 100%;}
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SECTION 01 - Sticky Nav -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="nav-logo">
+                <span style="border:none; padding:0; color:white; font-size: 20px;">VIETTEL NETWORKS</span>
+                <span>AI VIBE 2026</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#muc-tieu">Mục tiêu</a></li>
+                <li><a href="#doi-tuong">Đối tượng</a></li>
+                <li><a href="#noi-dung">Nội dung</a></li>
+                <li><a href="#quyen-loi">Quyền lợi</a></li>
+                <li><a href="#dang-ky">Đăng ký</a></li>
+            </ul>
+            <div class="nav-right">
+                <span class="phone">☎ 0989 208 017</span>
+                <a href="#dang-ky" class="btn btn-primary">Đăng ký ngay</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SECTION 02 - Hero -->
+    <section class="hero">
+        <div class="hero-bg-particles"></div>
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <span class="pill pill-cyan">🚀 CHƯƠNG TRÌNH ĐÀO TẠO NỘI BỘ - VIETTEL NETWORKS</span>
+                <h1>HƯỚNG DẪN THIẾT KẾ SLIDE CƠ BẢN & NÂNG CAO</h1>
+                <p class="subheadline">Từ ý tưởng đến Slide đỉnh cao & Landing Page chuyên nghiệp — Bạn không cần biết code. Bạn chỉ cần biết mình muốn gì — AI sẽ làm phần còn lại.</p>
+                
+                <div class="hero-buttons">
+                    <a href="#dang-ky" class="btn btn-primary">🚀 Đăng ký ngay — Hạn 06/05/2026</a>
+                    <a href="#noi-dung" class="btn btn-outline">📋 Xem nội dung chi tiết</a>
+                </div>
+
+                <div class="social-proof-mini">
+                    <div class="proof-tag">⚡ 3,5 giờ học nhanh</div>
+                    <div class="proof-tag">🎨 2 sản phẩm thật</div>
+                    <div class="proof-tag">🏆 Chứng nhận đáp ứng KNL</div>
+                </div>
+                
+                <div style="font-size: 12px; color: rgba(255,255,255,0.6); display: flex; align-items:center; gap:8px;">
+                    <span style="color:var(--cyan)">✓</span> VIETTEL NETWORKS │ AI VIBE 2026
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="mockup-window">
+                    <div class="mockup-header">
+                        <div class="mockup-dot"></div>
+                        <div class="mockup-dot"></div>
+                        <div class="mockup-dot"></div>
+                    </div>
+                    <div style="padding: 24px; display:flex; flex-direction:column; gap:16px; height: 100%; background: #1A1A1A;">
+                        <div style="width: 40%; height: 24px; background: rgba(255,255,255,0.1); border-radius: 4px;"></div>
+                        <div style="width: 100%; height: 120px; background: linear-gradient(90deg, #E30613 0%, #00D4FF 100%); border-radius: 8px; opacity: 0.8;"></div>
+                        <div style="display:flex; gap: 16px; flex: 1;">
+                            <div style="flex:1; background: rgba(255,255,255,0.05); border-radius: 8px;"></div>
+                            <div style="flex:1; background: rgba(255,255,255,0.05); border-radius: 8px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-down">↓</div>
+    </section>
+
+    <!-- SECTION 03 - Social Proof Bar -->
+    <div class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div>
+                    <div class="stat-num" data-target="3.5">0</div>
+                    <div class="stat-label">Học nhanh — buổi sáng xong việc chiều</div>
+                </div>
+                <div>
+                    <div class="stat-num" data-target="2">0</div>
+                    <div class="stat-label">Sản phẩm thật bắt buộc hoàn thành</div>
+                </div>
+                <div>
+                    <div class="stat-num">≥ 7/10</div>
+                    <div class="stat-label">Điểm đạt để nhận chứng nhận</div>
+                </div>
+                <div>
+                    <div class="stat-num" data-target="100">0</div>
+                    <div class="stat-label">% Cấp chứng nhận khi đạt chuẩn</div>
+                </div>
+            </div>
+            
+            <div class="marquee-container">
+                <div class="marquee-title">CÔNG CỤ TÍCH HỢP</div>
+                <div class="marquee-content">
+                    <span>Claude</span> • <span>Gemini</span> • <span>NotebookLM</span> • <span>Canva</span> • <span>GitHub</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 04 - Lợi ích -->
+    <section class="section bg-light" id="muc-tieu">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">01 — MỤC TIÊU CHƯƠNG TRÌNH</span>
+                <h2 class="section-title">Học để làm được việc thật, không phải học cho biết</h2>
+                <p class="section-subtext">Sau 3,5 giờ, bạn mang về sản phẩm hoàn chỉnh có thể dùng ngay tuần sau — không phải slide lý thuyết.</p>
+            </div>
+
+            <div class="ba-table">
+                <div class="ba-col ba-before">
+                    <div class="ba-title">TRƯỚC KHI HỌC</div>
+                    <ul class="ba-list">
+                        <li>3–5 tiếng làm slide thủ công</li>
+                        <li>Không biết bắt đầu từ đâu</li>
+                        <li>Slide nhạt, nhìn là biết không chuyên</li>
+                        <li>Mỗi lần làm từ đầu</li>
+                    </ul>
+                </div>
+                <div class="ba-col ba-after">
+                    <div class="ba-title">SAU KHÓA HỌC</div>
+                    <ul class="ba-list">
+                        <li>30 phút với AI — slide đẹp hơn</li>
+                        <li>Có quy trình rõ ràng, làm lại được</li>
+                        <li>Slide có thể đăng lên mạng tự hào</li>
+                        <li>Template + Skill tái sử dụng mãi</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <h3>Slide trong 30 phút</h3>
+                    <p>Từ tài liệu thô → slide đẹp chuyên nghiệp chỉ trong 30 phút. Không cần design sense, không cần chỉnh từng pixel.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔧</div>
+                    <h3>Làm chủ Skill Claude</h3>
+                    <p>Biết cách ra lệnh cho AI đúng cách — prompt chuẩn cho ra kết quả chuẩn. Kỹ năng này dùng được cho mọi công việc.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🌐</div>
+                    <h3>Tự build Landing Page</h3>
+                    <p>Xây trang web đơn giản không cần code — bằng công cụ AI và GitHub Pages. Sản phẩm 2 bắt buộc hoàn thành trong buổi học.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🧠</div>
+                    <h3>Tư duy Vibe Coding</h3>
+                    <p>Hiểu nguyên lý "dùng AI như trợ lý thông minh" — tư duy sẽ áp dụng được sang nhiều công cụ AI khác trong tương lai.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🏅</div>
+                    <h3>Chứng nhận đạt chuẩn KNL</h3>
+                    <p>Hoàn thành bài kiểm tra ≥ 7/10 → nhận chứng nhận chính thức đáp ứng KNL kỹ năng AI VTNet 2026.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 05 - Đối tượng -->
+    <section class="section bg-dark" id="doi-tuong">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">02 — ĐỐI TƯỢNG THAM GIA</span>
+                <h2 class="section-title">Dành cho bạn — nếu bạn là…</h2>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">👩‍💼</div>
+                    <h3>Nhân viên văn phòng VTNet</h3>
+                    <p>Thường xuyên phải tạo slide báo cáo, tổng kết, đề xuất — mất nhiều giờ mà kết quả chưa đẹp.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📊</div>
+                    <h3>Cán bộ quản lý cần trình bày</h3>
+                    <p>Cần slide thuyết trình chuyên nghiệp nhưng không có thời gian học Canva hay PowerPoint nâng cao.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎓</div>
+                    <h3>CBCNV cần hoàn thành KNL AI</h3>
+                    <p>Cần có chứng nhận kỹ năng AI theo yêu cầu đào tạo nội bộ VTNet 2026 — đây là con đường ngắn nhất.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💡</div>
+                    <h3>Người tò mò về AI trong công việc</h3>
+                    <p>Đã nghe nhiều về AI nhưng chưa biết bắt đầu từ đâu — muốn thử ngay trong môi trường an toàn, có hướng dẫn.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 06 - Nội dung -->
+    <section class="section bg-light" id="noi-dung">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">03 — NỘI DUNG CHƯƠNG TRÌNH</span>
+                <h2 class="section-title">Bạn sẽ học gì trong 3,5 giờ?</h2>
+                <p class="section-subtext">2 phần học, 2 sản phẩm thật — được tính điểm và cấp chứng nhận</p>
+            </div>
+
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab(1)">Phần 1: CƠ BẢN (~ 105 phút)</button>
+                <button class="tab-btn" onclick="switchTab(2)">Phần 2: NÂNG CAO (~ 105 phút)</button>
+            </div>
+
+            <div class="tab-content active" id="tab-1">
+                <div>
+                    <h3 style="font-size: 24px; margin-bottom: 24px;">Nội dung học phần Cơ bản:</h3>
+                    <ul style="display:flex; flex-direction:column; gap:24px;">
+                        <li>
+                            <strong>📄 Module 1 — Chuẩn bị tài liệu nguồn (~45 phút):</strong> Học cách tổ chức thông tin đúng cách trước khi nhờ AI xử lý. Có tài liệu tốt → AI ra kết quả tốt.
+                        </li>
+                        <li>
+                            <strong>🤖 Module 2 — Sinh slide tự động bằng AI (~60 phút):</strong> Dùng Claude / Gemini + Canva / Google Slides để biến tài liệu thành slide đẹp. Kết quả: <strong>1 bộ slide hoàn chỉnh</strong> — tính 8/10 điểm.
+                        </li>
+                    </ul>
+                </div>
+                <div class="mockup-window" style="aspect-ratio: 16/9; background:#fff;">
+                    <div class="mockup-header" style="background:#f1f1f1;"><div class="mockup-dot"></div><div class="mockup-dot"></div><div class="mockup-dot"></div></div>
+                    <div style="padding: 24px; text-align:center; color:var(--gray); display:flex; align-items:center; justify-content:center; height:100%;">Mockup giao diện Canva / Slide Generator</div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab-2">
+                <div class="mockup-window" style="aspect-ratio: 16/9; background:#fff;">
+                    <div class="mockup-header" style="background:#f1f1f1;"><div class="mockup-dot"></div><div class="mockup-dot"></div><div class="mockup-dot"></div></div>
+                    <div style="padding: 24px; text-align:center; color:var(--gray); display:flex; align-items:center; justify-content:center; height:100%;">Mockup giao diện Landing Page CV</div>
+                </div>
+                <div>
+                    <h3 style="font-size: 24px; margin-bottom: 24px;">Nội dung học phần Nâng cao:</h3>
+                    <ul style="display:flex; flex-direction:column; gap:24px;">
+                        <li>
+                            <strong>🔧 Module 3 — Skill Claude chuyên sâu (~60 phút):</strong> Kỹ thuật prompt nâng cao, tạo và sử dụng Claude Skill cho tác vụ lặp lại — một lần thiết lập, dùng mãi.
+                        </li>
+                        <li>
+                            <strong>🌐 Module 4 — Xây Landing Page & Public (~45 phút):</strong> Tạo trang web đơn giản không cần code bằng AI + đưa lên GitHub Pages. Kết quả: <strong>1 landing page live</strong> — tính 2/10 điểm.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <div class="tl-step">
+                    <div class="tl-num">1</div>
+                    <h4>📄 Xây tài liệu chuẩn</h4>
+                    <p>~ 45 phút. Tổ chức thông tin có cấu trúc, đúng định dạng.</p>
+                </div>
+                <div class="tl-step">
+                    <div class="tl-num">2</div>
+                    <h4>🤖 Sinh slide tự động</h4>
+                    <p>~ 60 phút. AI tạo slide, bạn tinh chỉnh nhanh chóng.</p>
+                </div>
+                <div class="tl-step">
+                    <div class="tl-num">3</div>
+                    <h4>🔧 Skill Claude</h4>
+                    <p>~ 60 phút. Xây dựng trợ lý AI cá nhân hóa theo yêu cầu.</p>
+                </div>
+                <div class="tl-step">
+                    <div class="tl-num">4</div>
+                    <h4>🌐 Public Landing Page</h4>
+                    <p>~ 45 phút. Tạo web, đẩy lên mạng với link chia sẻ ngay.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 64px;">
+                <a href="#dang-ky" class="btn btn-primary">Tôi muốn đăng ký ngay →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 07 - Quyền lợi -->
+    <section class="section bg-navy" id="quyen-loi">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">04 — QUYỀN LỢI HỌC VIÊN</span>
+                <h2 class="section-title">Bạn sẽ mang gì về sau buổi học?</h2>
+            </div>
+
+            <div class="score-cards">
+                <div class="score-card">
+                    <div class="score-badge">8 ĐIỂM</div>
+                    <h3>Sản phẩm 1: Bộ Slide</h3>
+                    <p>1 bộ slide hoàn chỉnh do AI tạo ra từ tài liệu của chính bạn — đẹp, chuẩn, dùng được ngay.</p>
+                </div>
+                <div class="score-card">
+                    <div class="score-badge">2 ĐIỂM</div>
+                    <h3>Sản phẩm 2: Landing Page</h3>
+                    <p>1 trang web live với link thật — không cần code, không cần hosting trả phí.</p>
+                </div>
+            </div>
+
+            <div class="total-score">Tổng: 10/10 — Đạt chứng nhận KNL AI Vibe 2026</div>
+
+            <div class="cards-grid">
+                <div class="card" style="background: rgba(255,255,255,0.05); border: none;">
+                    <h4 style="font-size: 20px; margin-bottom: 12px;">🎓 Chứng nhận chính thức</h4>
+                    <p style="color: rgba(255,255,255,0.7);">Đáp ứng KNL kỹ năng AI VTNet 2026, có giá trị trong hồ sơ nội bộ.</p>
+                </div>
+                <div class="card" style="background: rgba(255,255,255,0.05); border: none;">
+                    <h4 style="font-size: 20px; margin-bottom: 12px;">📚 Tài liệu học tập</h4>
+                    <p style="color: rgba(255,255,255,0.7);">Nhận toàn bộ tài liệu, template, prompt library sau buổi học.</p>
+                </div>
+                <div class="card" style="background: rgba(255,255,255,0.05); border: none;">
+                    <h4 style="font-size: 20px; margin-bottom: 12px;">💬 Hỗ trợ sau khóa</h4>
+                    <p style="color: rgba(255,255,255,0.7);">Liên hệ Đ/c Ngát hỗ trợ các thắc mắc sau buổi học.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 08 - Thông tin -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Thông tin buổi học</h2>
+            </div>
+
+            <div class="info-card">
+                <div class="info-header">
+                    <h3 class="h-display">100% MIỄN PHÍ</h3>
+                    <p>Dành riêng cho CBCNV VTNet</p>
+                </div>
+                <div class="info-body">
+                    <div class="info-row">
+                        <div class="info-icon">📅</div>
+                        <div class="info-label">Thời gian</div>
+                        <div class="info-value">8h30 – 12h00, Thứ Sáu 08/05/2026</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-icon">⏱</div>
+                        <div class="info-label">Thời lượng</div>
+                        <div class="info-value">3,5 giờ</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-icon">🎓</div>
+                        <div class="info-label">Hình thức</div>
+                        <div class="info-value">Blended — Zoom + Trực tiếp</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-icon">📍</div>
+                        <div class="info-label">Địa điểm</div>
+                        <div class="info-value">Tầng G, Toà nhà Thái Bình / Zoom</div>
+                    </div>
+                    <div class="info-row" style="border:none;">
+                        <div class="info-icon">👩‍🏫</div>
+                        <div class="info-label">Giảng viên</div>
+                        <div class="info-value">Đ/c Đỗ Thị Ngát — Phòng Nhân sự</div>
+                    </div>
+                </div>
+                <div class="info-footer">
+                    ✅ Cam kết: Mỗi học viên ra khỏi lớp đều mang theo sản phẩm hoàn chỉnh có thể dùng tuần sau.
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 32px;">
+                <a href="#dang-ky" class="btn btn-primary" style="font-size: 18px; padding: 18px 48px;">🚀 Đăng ký tham gia — Miễn phí</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 09 - FAQ -->
+    <section class="section bg-light" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Câu hỏi thường gặp</h2>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">Tôi không biết code có học được không? <span>+</span></div>
+                    <div class="faq-a">Hoàn toàn được — khóa học được thiết kế cho người không biết code. Bạn chỉ cần biết mình muốn gì, AI và công cụ sẽ làm phần kỹ thuật. Nhiều CBCNV không có nền tảng IT vẫn hoàn thành sản phẩm trong buổi học.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">Cần chuẩn bị gì trước khi đến lớp? <span>+</span></div>
+                    <div class="faq-a">Mang laptop cá nhân hoặc máy tính xách tay. Cài sẵn trình duyệt Chrome. Nếu có tài khoản Claude hoặc Gemini thì tốt — nếu chưa có sẽ hướng dẫn ngay tại lớp. Tài liệu nguồn (nếu có sẵn) mang theo để thực hành ngay.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">Tài khoản AI có cần bản trả phí không? <span>+</span></div>
+                    <div class="faq-a">Không bắt buộc. Bản miễn phí của Claude và Gemini đủ dùng cho buổi học. Giảng viên sẽ hướng dẫn cách tối ưu trong giới hạn tài khoản free.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">Làm sao để được cấp chứng nhận? <span>+</span></div>
+                    <div class="faq-a">Hoàn thành 2 sản phẩm bắt buộc: Slide (8 điểm) + Landing Page (2 điểm). Tổng ≥ 7/10 → nhận chứng nhận chính thức đáp ứng KNL AI Vibe 2026 của VTNet.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">Nếu không đạt 7/10 thì sao? <span>+</span></div>
+                    <div class="faq-a">Bạn vẫn được nhận tài liệu và tham dự đầy đủ. Chứng nhận KNL sẽ được xét lại trong đợt đào tạo tiếp theo hoặc theo hướng dẫn của Phòng Nhân sự.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">Tôi học online qua Zoom có nhận được chứng nhận không? <span>+</span></div>
+                    <div class="faq-a">Có — hình thức Blended cho phép cả học viên online và offline tham gia đầy đủ và nộp sản phẩm. Chứng nhận cấp theo kết quả sản phẩm, không phân biệt hình thức tham dự.</div>
+                </div>
+            </div>
+            
+            <div style="text-align:center; margin-top: 48px; color: var(--gray);">
+                Còn thắc mắc khác? Liên hệ trực tiếp Đ/c Mai Ngọc Minh — 0989 208 017
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 10 - Final CTA -->
+    <section class="final-cta" id="dang-ky">
+        <div class="urgency-banner">
+            ⏰ Còn <span id="days-left">...</span> ngày — Số lượng chỗ có hạn — Đăng ký sớm để đảm bảo chỗ ngồi
+        </div>
+        <div class="container">
+            <div class="countdown">
+                <div class="cd-box"><div class="cd-num" id="cd-days">00</div><div class="cd-label">NGÀY</div></div>
+                <div class="cd-num" style="align-self:center;">:</div>
+                <div class="cd-box"><div class="cd-num" id="cd-hours">00</div><div class="cd-label">GIỜ</div></div>
+                <div class="cd-num" style="align-self:center;">:</div>
+                <div class="cd-box"><div class="cd-num" id="cd-mins">00</div><div class="cd-label">PHÚT</div></div>
+                <div class="cd-num" style="align-self:center;">:</div>
+                <div class="cd-box"><div class="cd-num" id="cd-secs">00</div><div class="cd-label">GIÂY</div></div>
+            </div>
+
+            <h2>AI không thay thế bạn.</h2>
+            <h2 class="highlight">Người biết dùng AI sẽ thay thế bạn.</h2>
+
+            <a href="#" class="btn btn-primary btn-huge">🚀 ĐĂNG KÝ NGAY — GIỮ CHỖ TRƯỚC 06/05</a>
+            
+            <p style="margin-top: 24px; color: rgba(255,255,255,0.6);">Chỉ cần 2 phút điền form • Miễn phí 100% cho CBCNV VTNet • Hẹn gặp bạn sáng Thứ Sáu 08/05</p>
+            <p style="margin-top: 16px; font-weight: 500; color: var(--cyan);">✅ Cam kết: Mỗi học viên ra khỏi lớp đều mang theo sản phẩm hoàn chỉnh có thể dùng ngay tuần sau</p>
+            
+            <p style="margin-top: 48px; font-size: 14px; color: rgba(255,255,255,0.4);">📞 Hoặc gọi trực tiếp: 0989 208 017 — Đ/c Mai Ngọc Minh</p>
+        </div>
+    </section>
+
+    <!-- SECTION 11 - Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="nav-logo" style="margin-bottom: 16px;">VIETTEL NETWORKS <span>AI VIBE 2026</span></div>
+                    <p style="color: var(--gray); margin-bottom: 16px;">Tổng Công ty Mạng lưới — Viettel Group</p>
+                    <span class="pill pill-cyan">Đáp ứng KNL — VTNet 2026</span>
+                </div>
+                <div class="footer-col">
+                    <h4>Nội dung</h4>
+                    <ul class="footer-links">
+                        <li><a href="#muc-tieu">Mục tiêu chương trình</a></li>
+                        <li><a href="#doi-tuong">Đối tượng tham gia</a></li>
+                        <li><a href="#noi-dung">Nội dung học</a></li>
+                        <li><a href="#quyen-loi">Quyền lợi</a></li>
+                        <li><a href="#dang-ky">Đăng ký</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Liên hệ</h4>
+                    <ul class="footer-links" style="color: var(--gray);">
+                        <li>👩‍💼 Đ/c Mai Ngọc Minh — Phòng Nhân sự</li>
+                        <li>📞 0989 208 017</li>
+                        <li>✉ minhmn@viettel.com.vn</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © 2026 Viettel Networks — Tất cả quyền được bảo lưu │ Tài liệu nội bộ — Không phân phối ra ngoài
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Elements -->
+    <a href="https://zalo.me/0989208017" target="_blank" class="floating-zalo">Zalo</a>
+
+    <div class="fomo-toast" id="fomoToast">
+        <div style="width: 32px; height: 32px; border-radius: 50%; background: var(--gray-3); display:flex; align-items:center; justify-content:center; color:white;">👤</div>
+        <div>
+            <p style="font-size: 13px; font-weight: 500; color: var(--navy);" id="fomoText">Đ/c Nguyễn Văn An vừa đăng ký...</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Sticky Nav
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Tabs
+        function switchTab(tabIndex) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            document.querySelectorAll('.tab-btn')[tabIndex-1].classList.add('active');
+            document.getElementById('tab-' + tabIndex).classList.add('active');
+        }
+
+        // FAQ Accordion
+        function toggleFaq(element) {
+            const parent = element.parentElement;
+            parent.classList.toggle('active');
+            const icon = element.querySelector('span');
+            icon.textContent = parent.classList.contains('active') ? '-' : '+';
+        }
+
+        // Countdown Timer
+        const targetDate = new Date('2026-05-06T23:59:00+07:00').getTime();
+        
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                document.getElementById('days-left').innerText = "0";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days-left').innerText = days;
+            document.getElementById('cd-days').innerText = days.toString().padStart(2, '0');
+            document.getElementById('cd-hours').innerText = hours.toString().padStart(2, '0');
+            document.getElementById('cd-mins').innerText = minutes.toString().padStart(2, '0');
+            document.getElementById('cd-secs').innerText = seconds.toString().padStart(2, '0');
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Counting Animation
+        const stats = document.querySelectorAll('.stat-num');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = parseFloat(entry.target.getAttribute('data-target'));
+                    if(!target) return;
+                    
+                    let current = 0;
+                    const increment = target / 50;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            entry.target.innerText = target % 1 !== 0 ? target.toFixed(1) : target;
+                            clearInterval(timer);
+                        } else {
+                            entry.target.innerText = target % 1 !== 0 ? current.toFixed(1) : Math.floor(current);
+                        }
+                    }, 30);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        stats.forEach(stat => observer.observe(stat));
+
+        // FOMO Toast
+        const names = [
+            "Đ/c Nguyễn Văn An", "Đ/c Trần Thị Bình", "Đ/c Lê Minh Cường", 
+            "Đ/c Phạm Thu Dung", "Đ/c Hoàng Văn Em"
+        ];
+        
+        setInterval(() => {
+            const toast = document.getElementById('fomoToast');
+            const randomName = names[Math.floor(Math.random() * names.length)];
+            const randomTime = Math.floor(Math.random() * 20) + 2;
+            
+            document.getElementById('fomoText').innerText = `${randomName} vừa đăng ký ${randomTime} phút trước`;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 5000);
+        }, 12000);
+
+    </script>
+</body>
+</html>
